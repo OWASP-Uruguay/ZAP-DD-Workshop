@@ -51,6 +51,7 @@ docker-compose logs initializer | grep "Admin password:"
 ### OWASP ZAP (Zed Attack Proxy)
 - Project URL: https://www.zaproxy.org/
 - Docker (stable version): https://hub.docker.com/r/owasp/zap2docker-stable/
+- Zap in ten (tutorials): https://www.alldaydevops.com/zap-in-ten
 
 ### OWASP DefectDojo
 - Project URL: https://owasp.org/defectdojo
