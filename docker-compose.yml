@@ -20,3 +20,8 @@ services:
     container_name: "juice-shop"
     ports:
       - 3000:3000
+
+  webgoat:
+   image: webgoat/webgoat-8.0
+   ports:
+     - 8888:8080

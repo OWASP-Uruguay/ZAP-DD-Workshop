@@ -7,7 +7,45 @@ Repositorio para el Meetup organizado por [OWASP Uruguay](https://owasp.org/urug
 ## Introducción
 En este workshop aprenderemos acerca de estos dos proyectos Flagships de OWASP. Además, para probar ZAP utilizaremos otro proyecto Flagship de OWASP, OWASP Juice Shop.
 
-Link a la presentación [aquí](https://docs.google.com/presentation/d/1cgYvs1Nwljkn3QtU_g0rbajfFwFuEkUPNxQnSpPkPXo/edit?usp=sharing)
+Link a la presentación [aquí](https://docs.google.com/presentation/d/1qhvtCQTBHwQQ9NS7_VQZh8r67kC4DyQZCpTHqA7sy2w/edit?usp=sharing)
+
+## ZAP
+
+### ZAP - Demo GUI
+Para levantar el ambiente ejecutar el comando "docker-compose up -d" en la raíz del repositorio.
+
+Para abrir la GUI de ZAP: acceder a http://localhost:8080/zap/
+
+Descargar certificado: Tools -> Options -> Dynamic SSL Certificate -> Save (instalarlo en el navegador de preferencia)
+* Chromium: https://www.xataka.com/basics/como-importar-exportar-certificado-digital-chrome
+* Firefox:  https://www.xataka.com/basics/como-importar-exportar-certificado-digital-firefox
+
+Acceder a juice-shop http://localhost:3000
+
+Acceder a webgoat http://localhost:8888
+## DD
+<!--
+Para probar Defect Dojo puede hacerlo de alguna de las dos maneras a continuación:
+### Demo Online
+Ingresar al [ambiente de test](https://defectdojo.herokuapp.com/) con las siguiente crerdenciales.
+* admin / defectdojo@demo#appsec
+* product_manager / defectdojo@demo#product
+-->
+### Inicio rápido local
+```sh
+git clone https://github.com/DefectDojo/django-DefectDojo
+cd django-DefectDojo
+# Buildear
+docker-compose build
+# Correr
+docker-compose up -d
+```
+
+Navegar a <http://localhost:8080> (esperar un rato que levante o si aparece un error refrescar hasta que termine de levantar todo).
+
+Ejecutar el siguente comando para averiguar la contraseña del ususuario admin:
+docker-compose logs initializer | grep "Admin password:" 
+
 
 ## Links de interés
 ### OWASP ZAP (Zed Attack Proxy)
@@ -20,3 +58,10 @@ Link a la presentación [aquí](https://docs.google.com/presentation/d/1cgYvs1Nw
 ### OWASP Juice Shop
 - Project URL: https://owasp.org/juice-shop
 - Docker: https://hub.docker.com/r/bkimminich/juice-shop
+
+### OWASP Webgoat
+- Project URL: https://owasp.org/www-project-webgoat/
+- Docker: https://hub.docker.com/r/webgoat/webgoat-8.0/
+
+### All OWASP Projects
+- URL: https://owasp.org/projects/
