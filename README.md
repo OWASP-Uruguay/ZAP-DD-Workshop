@@ -53,7 +53,7 @@ docker-compose up -d
 Navegar a <http://localhost:8080> (esperar un rato que levante o si aparece un error refrescar hasta que termine de levantar todo).
 
 Ejecutar el siguente comando para averiguar la contraseña del ususuario admin:
-docker-compose logs initializer | grep "Admin password:" 
+`docker-compose logs initializer | grep "Admin password:"`
 
 ### Creando un nuevo usuario administrador
 
