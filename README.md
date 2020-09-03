@@ -10,11 +10,13 @@ En este workshop aprenderemos acerca de estos dos proyectos Flagships de OWASP. 
 Link a la presentación [aquí](https://docs.google.com/presentation/d/1qhvtCQTBHwQQ9NS7_VQZh8r67kC4DyQZCpTHqA7sy2w/edit?usp=sharing)
 
 ## ZAP
+### Inicio ambiente local
+Para levantar el ambiente ejecutar el siguiente comando en la raíz del repositorio:
+ ```sh
+docker-compose up -d
+```
 
-### ZAP - Demo GUI
-Para levantar el ambiente ejecutar el comando "docker-compose up -d" en la raíz del repositorio.
-
-Para abrir la GUI de ZAP: acceder a http://localhost:8080/zap/
+Para abrir la GUI de ZAP acceder a http://localhost:8080/zap/
 
 Descargar certificado: Tools -> Options -> Dynamic SSL Certificate -> Save (instalarlo en el navegador de preferencia)
 * Chromium: https://www.xataka.com/basics/como-importar-exportar-certificado-digital-chrome
@@ -23,7 +25,14 @@ Descargar certificado: Tools -> Options -> Dynamic SSL Certificate -> Save (inst
 Acceder a juice-shop http://localhost:3000
 
 Acceder a webgoat http://localhost:8888
-## DD
+
+Para bajar el ambiente local (necesario para hacer las pruebas con DefectDojo), ejecutar también en la raíza del repositorio:
+ ```sh
+docker-compose down
+```
+
+
+## Defect Dojo
 <!--
 Para probar Defect Dojo puede hacerlo de alguna de las dos maneras a continuación:
 ### Demo Online
@@ -52,7 +61,7 @@ Puede pasar, sobre todo al hacer pruebas, que el password de admin se les olvide
 Esta es una forma simple de crear un nuevo usuario con privilegios.
 
 ```bash
-❯ docker-compose exec uwsgi /bin/bash -c 'python manage.py createsuperuser'
+docker-compose exec uwsgi /bin/bash -c 'python manage.py createsuperuser'
 enabling audit logging
 patching TagDescriptor
 Popen(['git', 'version'], cwd=/app, universal_newlines=False, shell=None, istream=None)
