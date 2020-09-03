@@ -46,6 +46,74 @@ Navegar a <http://localhost:8080> (esperar un rato que levante o si aparece un e
 Ejecutar el siguente comando para averiguar la contraseña del ususuario admin:
 docker-compose logs initializer | grep "Admin password:" 
 
+### Creando un nuevo usuario administrador
+
+Puede pasar, sobre todo al hacer pruebas, que el password de admin se les olvide.
+Esta es una forma simple de crear un nuevo usuario con privilegios.
+
+```bash
+❯ docker-compose exec uwsgi /bin/bash -c 'python manage.py createsuperuser'
+enabling audit logging
+patching TagDescriptor
+Popen(['git', 'version'], cwd=/app, universal_newlines=False, shell=None, istream=None)
+Popen(['git', 'version'], cwd=/app, universal_newlines=False, shell=None, istream=None)
+Username: fzipi
+Email address: felipe.zipitria@owasp.org
+Password:
+Password (again):
+Superuser created successfully.
+```
+
+### Términos usados en DD
+
+Estos son los términos básicos que se usan en DefectDojo, que van a ser útiles a medida que se trabaja con el.
+
+#### `Products` (productos)
+
+Este es el nombre de cualquier proyecto, programa, equipo, o empresa que se está testeando.
+
+Ejemplos:
+-  Wordpress
+-  Wiki Interno
+-  Slack
+
+#### `Product types` (tipos de producto)
+
+Pueden ser unidades de negocio, oficinas o lugares distintos, o cualquier cosa que sirva para distinguir lógicamente los "tipos" de productos.
+
+Ejemplos:
+-  Internal / 3rd party
+-  Main company / Acquisition
+-  San Francisco / New York offices
+
+#### `Engagement` (interacciones/contratos)
+
+Son momentos en el tiempo en los que el test se realiza. Se asocian a un nombre para fácil referencia, un plazo de tiempo, un líder, una estrategia de test y un estatus.
+
+Ejemplos:
+-  Beta
+-  Quarterly PCI Scan
+-  Release Version X
+
+#### `Test Types` (tipos de tests)
+
+Características del tipo de test que se hizo durante la interacción.
+
+Ejemplos:
+-  Funcional
+-  Seguridad
+-  Nessus Scan
+-  API test
+
+#### `Environments` (entornos)
+
+El entorno que fue testeado durante la interacción.
+
+Ejemplos:
+-  Producción
+-  PreProd
+-  Desarrollo
+
 
 ## Links de interés
 ### OWASP ZAP (Zed Attack Proxy)
