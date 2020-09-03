@@ -46,6 +46,23 @@ Navegar a <http://localhost:8080> (esperar un rato que levante o si aparece un e
 Ejecutar el siguente comando para averiguar la contraseña del ususuario admin:
 docker-compose logs initializer | grep "Admin password:" 
 
+### Creando un nuevo usuario administrador
+
+Puede pasar, sobre todo al hacer pruebas, que el password de admin se les olvide.
+Esta es una forma simple de crear un nuevo usuario con privilegios.
+
+```bash
+❯ docker-compose exec uwsgi /bin/bash -c 'python manage.py createsuperuser'
+enabling audit logging
+patching TagDescriptor
+Popen(['git', 'version'], cwd=/app, universal_newlines=False, shell=None, istream=None)
+Popen(['git', 'version'], cwd=/app, universal_newlines=False, shell=None, istream=None)
+Username: fzipi
+Email address: felipe.zipitria@owasp.org
+Password:
+Password (again):
+Superuser created successfully.
+```
 
 ## Links de interés
 ### OWASP ZAP (Zed Attack Proxy)
